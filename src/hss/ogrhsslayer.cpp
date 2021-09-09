@@ -18,8 +18,7 @@ OGRHSSLayer::OGRHSSLayer( const char *pszFilename,
                           const char* layerName,
                           OGRwkbGeometryType eLayerGeomType,
                           int bWriterIn,
-                          OGRHSSDataSource* poDSIn,
-                          int nIDsIn) :
+                          OGRHSSDataSource* poDSIn) :
     poDS(poDSIn),
     bWriter(bWriterIn),
     failed(false),
@@ -94,20 +93,6 @@ OGRFeature *OGRHSSLayer::GetNextFeature()
 void OGRHSSLayer::WriteFeatureAttributes( VSILFILE* fp, OGRFeature *poFeature )
 {
    
-}
-
-/************************************************************************/
-/*                             WriteCoord()                             */
-/************************************************************************/
-
-void OGRHSSLayer::WriteCoord(VSILFILE* fp, double dfX, double dfY)
-{
-    char szBuffer[64];
-    OGRFormatDouble(szBuffer, sizeof(szBuffer), dfX, '.', poDS->GetCoordinatePrecision());
-    CPL_IGNORE_RET_VAL(VSIFPrintfL( fp, "%s", szBuffer));
-    CPL_IGNORE_RET_VAL(VSIFPrintfL( fp, "%s", poDS->GetCoordinateSeparator()));
-    OGRFormatDouble(szBuffer, sizeof(szBuffer), dfY, '.', poDS->GetCoordinatePrecision());
-    CPL_IGNORE_RET_VAL(VSIFPrintfL( fp, "%s", szBuffer));
 }
 
 /************************************************************************/

@@ -25,7 +25,6 @@ class OGRHSSLayer final: public OGRLayer
     OGRHSSDataSource*  poDS;
     int                bWriter;
 
-    int                nIDs;
     bool               eof;
     bool               failed;
     int                curLine;
@@ -35,7 +34,6 @@ class OGRHSSLayer final: public OGRLayer
     std::vector<OffsetAndLine> offsetAndLineFeaturesTable;
 
     void               WriteFeatureAttributes(VSILFILE* fp, OGRFeature *poFeature);
-    void               WriteCoord(VSILFILE* fp, double dfX, double dfY);
 
   public:
                         OGRHSSLayer(const char *pszFilename,
