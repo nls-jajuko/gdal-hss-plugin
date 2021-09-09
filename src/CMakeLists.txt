@@ -1,6 +1,5 @@
 set(GDAL_HSS_SOURCES
     entrypoint.cpp
-    ogr_geo_utils.cpp
     hss/ogrhssdriver.cpp
     hss/ogrhssdatasource.cpp
     hss/ogrhsslayer.cpp
