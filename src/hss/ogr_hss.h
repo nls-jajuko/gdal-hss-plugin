@@ -34,7 +34,6 @@ class OGRHSSLayer final: public OGRLayer
     int                nFeatures;
     std::vector<OffsetAndLine> offsetAndLineFeaturesTable;
 
-    OGRFeature *       BuildFeatureFromHSSRecord (HSSRecord* record, long fid);
     void               WriteFeatureAttributes(VSILFILE* fp, OGRFeature *poFeature);
     void               WriteCoord(VSILFILE* fp, double dfX, double dfY);
 

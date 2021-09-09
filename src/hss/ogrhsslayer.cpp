@@ -133,15 +133,6 @@ OGRErr OGRHSSLayer::CreateField( OGRFieldDefn *poField, int /* bApproxOK */ )
 }
 
 /************************************************************************/
-/*                           BuildFeatureFromHSSRecord()                */
-/************************************************************************/
-OGRFeature *OGRHSSLayer::BuildFeatureFromHSSRecord (HSSRecord* record, long fid)
-{
-
-    return nullptr;
-}
-
-/************************************************************************/
 /*                           GetFeature()                               */
 /************************************************************************/
 

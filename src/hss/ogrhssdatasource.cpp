@@ -73,7 +73,6 @@ OGRLayer * OGRHSSDataSource::ICreateLayer( const char * pszLayerName,
                                            OGRwkbGeometryType eType,
                                            char ** /* papszOptions */ )
 {
-    HSSFeatureType HSSFeatureType;
 
     nLayers++;
     papoLayers = static_cast<OGRHSSLayer **>(
