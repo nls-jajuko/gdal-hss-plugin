@@ -27,7 +27,7 @@ void /*OGRGPXDataSource*/OGRHSSDataSource::PrintLine(const char *fmt, ...)
     osWork.vPrintf( fmt, args );
     va_end( args );
 
-    VSIFPrintfL(fpOutput, "%s%s", osWork.c_str(), pszEOL);
+    VSIFPrintfL(fpOutput, "%s%s", osWork.c_str(), "\n");
 }
 
 /************************************************************************/
