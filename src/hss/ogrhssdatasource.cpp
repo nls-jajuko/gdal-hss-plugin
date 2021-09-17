@@ -36,7 +36,7 @@ OGRErr OGRHSSDataSource::exportFeature(OGRFeature *poFeature)
     }
 
     char *pszValue = nullptr;
-    if( poGeom->exportToWkt &pszValue ) == OGRERR_NONE )
+    if( poGeom->exportToWkt( &pszValue ) == OGRERR_NONE )
     {
         VSIFPrintfL( fp, "HSS: FEATURE Geom \"%s\"\n", pszValue );
     }
