@@ -3,6 +3,7 @@
 #include "cpl_conv.h"
 #include "cpl_string.h"
 #include "cpl_csv.h"
+#include "ogr_geometry.h"
 
 CPL_CVSID("$Id$")
 
@@ -17,6 +18,32 @@ OGRHSSDataSource::OGRHSSDataSource() :
     fpOutput(nullptr),
     coordinatePrecision(0)
 {}
+
+OGRErr OGRHSSDataSource::exportFeature(OGRFeature *poFeature) 
+{
+    VSILFILE* fp = GetOutputFP();
+    if (fp == nullptr)
+        return OGRERR_FAILURE;
+        
+    OGRGeometry     *poGeom = poFeature->GetGeometryRef();
+
+    if ( poGeom == nullptr )
+    {
+        PrintLine("HSS: FEATURE WITH NO GEOM");
+        return OGRERR_NONE;
+    }
+
+    OGRWktOptions opts ;
+    OGRErr err = OGRERR_NONE;
+
+    std:string wkt = poGeom->exportToWkt( opts, &err);
+    std:string hss = "HSS: FEATURE ";
+    std:string msg = hss.append(wkt);
+
+    PrintLine(msg.c_str());
+
+    return err;
+}
 
 void /*OGRGPXDataSource*/OGRHSSDataSource::PrintLine(const char *fmt, ...)
 {

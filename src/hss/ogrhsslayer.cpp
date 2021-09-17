@@ -103,21 +103,7 @@ void OGRHSSLayer::WriteFeatureAttributes( VSILFILE* fp, OGRFeature *poFeature )
 OGRErr OGRHSSLayer::ICreateFeature( OGRFeature *poFeature )
 
 {
-    VSILFILE* fp = poDS->GetOutputFP();
-    if (fp == nullptr)
-        return OGRERR_FAILURE;
-        
-    OGRGeometry     *poGeom = poFeature->GetGeometryRef();
-
-    if ( poGeom == nullptr )
-    {
-        poDS->PrintLine("HSS: FEATURE WITH NO GEOM");
-        return OGRERR_NONE;
-    }
-
-    poDS->PrintLine("HSS: FEATURE WITH GEOM");
-
-    return OGRERR_NONE;
+   return poDS->exportFeature(poFeature);
 }
 
 /************************************************************************/

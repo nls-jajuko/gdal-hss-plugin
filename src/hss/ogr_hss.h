@@ -96,6 +96,9 @@ class OGRHSSDataSource final: public OGRDataSource
                                     char ** papszOptions ) override;
 
     int                 TestCapability( const char * ) override;
+
+    OGRErr                exportFeature(OGRFeature *poFeature);
+
     void                PrintLine(const char *fmt, ...) CPL_PRINT_FUNC_FORMAT (2, 3);    
 };
 
