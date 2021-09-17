@@ -17,7 +17,9 @@ OGRHSSDataSource::OGRHSSDataSource() :
     nLayers(0),
     fpOutput(nullptr),
     coordinatePrecision(0)
-{}
+{
+
+}
 
 OGRErr OGRHSSDataSource::exportFeature(OGRFeature *poFeature) 
 {
@@ -40,7 +42,7 @@ OGRErr OGRHSSDataSource::exportFeature(OGRFeature *poFeature)
     std::string hss = "HSS: FEATURE ";
     std::string msg = hss.append(wkt);
 
-    PrintLine(msg.c_str());
+    PrintLine("%s",msg.c_str());
 
     return err;
 }
