@@ -20,7 +20,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-
+    
+    - name: Install gdal et al
+      run: sudo apt-get install gdal-bin gdal-data libgdal-dev proj-bin libcurl4 libproj-dev
+      
     - name: Configure CMake
       # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
       # See https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html?highlight=cmake_build_type
