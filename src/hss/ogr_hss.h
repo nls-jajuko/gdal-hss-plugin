@@ -5,6 +5,7 @@
 #include "ogrsf_frmts.h"
 
 #include <vector>
+#include <string>
 
 class OGRHSSDataSource;
 
