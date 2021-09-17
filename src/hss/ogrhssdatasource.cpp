@@ -36,9 +36,9 @@ OGRErr OGRHSSDataSource::exportFeature(OGRFeature *poFeature)
     OGRWktOptions opts ;
     OGRErr err = OGRERR_NONE;
 
-    std:string wkt = poGeom->exportToWkt( opts, &err);
-    std:string hss = "HSS: FEATURE ";
-    std:string msg = hss.append(wkt);
+    std::string wkt = poGeom->exportToWkt( opts, &err);
+    std::string hss = "HSS: FEATURE ";
+    std::string msg = hss.append(wkt);
 
     PrintLine(msg.c_str());
 
