@@ -35,16 +35,15 @@ OGRErr OGRHSSDataSource::exportFeature(OGRFeature *poFeature)
         return OGRERR_NONE;
     }
 
-    OGRWktOptions opts ;
-    OGRErr err = OGRERR_NONE;
+    char *pszValue = nullptr;
+    if( poSRS->exportToProj4( &pszValue ) == OGRERR_NONE )
+    {
+        VSIFPrintfL( fp, "HSS: FEATURE Geom \"%s\"\n", pszValue );
+    }
+    CPLFree( pszValue );
+    pszValue = nullptr;
 
-    std::string wkt = poGeom->exportToWkt( opts, &err);
-    std::string hss = "HSS: FEATURE ";
-    std::string msg = hss.append(wkt);
-
-    PrintLine("%s",msg.c_str());
-
-    return err;
+    return OGRERR_NONE;
 }
 
 void /*OGRGPXDataSource*/OGRHSSDataSource::PrintLine(const char *fmt, ...)
